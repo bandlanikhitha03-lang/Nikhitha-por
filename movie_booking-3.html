@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+            padding: 30px;
+        }
+        .box {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #message {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>🎬 Movie Booking</h2>
+
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <select id="movie">
+            <option value="">Select Movie</option>
+            <option value="Avatar">Avatar</option>
+            <option value="Avengers">Avengers</option>
+            <option value="Pushpa 2">Pushpa 2</option>
+        </select>
+
+        <input type="number" id="tickets" placeholder="Number of tickets" min="1">
+
+        <button id="bookBtn">Book Ticket</button>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        document.getElementById("bookBtn").addEventListener("click", function () {
+
+            let name = document.getElementById("name").value;
+            let movie = document.getElementById("movie").value;
+            let tickets = document.getElementById("tickets").value;
+
+            if (name === "" || movie === "" || tickets === "") {
+                document.getElementById("message").innerHTML =
+                    "Please fill all details.";
+                return;
+            }
+
+            document.getElementById("message").innerHTML =
+                "Booking Successful! 🎉";
+
+            setTimeout(function () {
+                window.close();
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>
